@@ -1,0 +1,14 @@
+services:
+  sut:
+    build: ./test/smoke/
+    links:
+      - app
+  app:
+    image: bkimminich/juice-shop:latest
+    #build: ./
+    container_name: juice_shop 
+    ports: 
+      - "3000:3000" 
+    environment:
+      - SUPER_SECRET_KEY=4fd7b9e97a4c4adc6608fdf133ac35fa
+    restart: always
